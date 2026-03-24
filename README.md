@@ -15,3 +15,6 @@ Released under the [MIT License](https://github.com/ree-verse/Reeverse.dev/blob/
     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ree-verse/Reeverse.dev&type=Timeline" />
   </picture>
 </a>
+
+> [!NOTE]
+> For now, the site is hosted on GitHub, since I haven't purchased the domain name "Reeverse.dev".
