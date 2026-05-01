@@ -2,6 +2,11 @@
 
 My minimal, dark-themed portfolio website that dynamically pulls my profile and repositories from the GitHub API.
 
+## Credits
+
+This project was inspired by [Idefa.dev](https://idefa.dev).
+Many thanks to Idefa for the inspiration.
+
 ## License
 
 Released under the [MIT License](https://github.com/ree-verse/Reeverse.dev/blob/main/LICENSE) © 2026 [Ree-verse](https://github.com/ree-verse).
