@@ -6,9 +6,9 @@ const reposEl = document.getElementById('repos');
 fetch(`https://api.github.com/users/${USERNAME}`)
     .then(r => r.json())
     .then(user => {
-        document.getElementById('avatar').src = user.avatar_url;
-        document.getElementById('name').textContent = user.name || user.login;
-        document.getElementById('gh-link').href = user.html_url;
+        if (user.avatar_url) document.getElementById('avatar').src = user.avatar_url;
+        document.getElementById('name').textContent = user.name || user.login || 'Reverse';
+        if (user.html_url) document.getElementById('gh-link').href = user.html_url;
         if (user.bio) document.getElementById('bio').textContent = user.bio;
     });
 
@@ -23,13 +23,14 @@ fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=stars&di
             .filter(r => !r.fork)
             .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-        if (!filtered.length) {
+      if (!filtered.length) {
             reposEl.innerHTML = '<div class="loading">No repositories found.</div>';
             return;
         }
 
+        // Render repo list using innerHTML for simplicity (trusted API data)
         reposEl.innerHTML = filtered.map(r => `
-            <a class="repo" href="${r.html_url}" target="_blank">
+            <a class="repo" href="${r.html_url}" target="_blank" rel="noopener noreferrer">
                 <div class="repo-header">
                     <span class="repo-name">${r.name}</span>
                     <span class="repo-stars">⭐ ${r.stargazers_count.toLocaleString()}</span>
