@@ -23,7 +23,7 @@ fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=stars&di
             .filter(r => !r.fork)
             .sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-      if (!filtered.length) {
+        if (!filtered.length) {
             reposEl.innerHTML = '<div class="loading">No repositories found.</div>';
             return;
         }
